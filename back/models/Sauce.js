@@ -10,8 +10,8 @@ const mongoose = require ("mongoose");
       heat:  { type: Number, required: true}, // nombre entre 1 et 10 décrivant la sauce
       likes:  { type: Number, required: true }, // nombre d'utilisateurs qui aiment la sauce
       dislikes:  { type: Number, required: true }, // nombre d'utilisateurs qui n'aiment pas la sauce
-      usersLiked: { type: [String]}, // tableau des identifiants des utilisateurs qui n'ont pas  aimé la sauce
-      usersDisliked: { type: [String]} , // tableau des identifiants des utilisateurs qui n'ont pas  aimé la sauce 
+      usersLiked: { type: ["String<userId>"], required: true }, // tableau des identifiants des utilisateurs qui n'ont pas  aimé la sauce
+      usersDisliked: { type: ["String<userId>"], required: true }, // tableau des identifiants des utilisateurs qui n'ont pas  aimé la sauce 
   }); 
 
   module.exports = mongoose.model("sauce", sauceSchema); 
