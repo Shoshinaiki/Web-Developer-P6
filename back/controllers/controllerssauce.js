@@ -1,5 +1,6 @@
 const Sauce = require("../models/Sauce");
 
+
 exports.getAllSauce = (req, res, next) => {
     
 };
