@@ -3,7 +3,7 @@ const mongoose = require ("mongoose");
   const sauceSchema = mongoose.Schema({
       userId: { type: String, required: true }, // identifiant MongoDB unique de l'utilisateur qui a créé la sauce
       name: { type: String, required: true }, // nom de la sauce
-      name: { type: String, required: true }, // fabricant de la sauce
+      manufacturer: { type: String, required: true }, // fabricant de la sauce
       description: { type: String, required: true }, // description de la sauce
       mainPepper: { type: String, required: true }, // principal ingrédient épicé de la sauce
       imageUrl: { type: String, required: true }, // URL de l'image de la sauce téléchargée par l'utilisateur
