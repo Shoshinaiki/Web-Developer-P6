@@ -1,6 +1,8 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
+const dotenv = require("dotenv").config({ encoding: "latin1" });
+
 
 exports.signup = (req, res, next) => {
     bcrypt.hash(req.body.password, 10).then((hash) => {
@@ -33,7 +35,7 @@ exports.signup = (req, res, next) => {
             }
             res.status(200).json({
               userId: user._id,
-              token: jwt.sign({ userId: user._id }, 'RANDOM_TOKEN_SECRET', {
+              token: jwt.sign({ userId: user._id }, process.env.TOKEN_KEY, {
                 expiresIn: "24h",
               }),
             });

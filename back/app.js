@@ -5,6 +5,7 @@ const sauceRoutes = require("./routes/routesauce");
 const path = require('path');
 const helmet = require('helmet');
 const rate = require('express-rate-limit');
+const dotenv = require("dotenv").config({ encoding: "latin1" });
 
 const app = express();
 
@@ -20,7 +21,7 @@ app.use(
   })
 );
 
-mongoose.connect('mongodb+srv://Shoshinaiki:Misscri1966@p6hottakes.colhm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+mongoose.connect(process.env.MONGOOSE_KEY,
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
